@@ -12,6 +12,8 @@ public class BoardManager : MonoBehaviour
     public int xSize, ySize;
 
     private GameObject[,] candies;
+
+    //Esta cambiando
     public bool isShifting { get; set; }
 
     private Candy selectedCandy;
@@ -59,9 +61,8 @@ public class BoardManager : MonoBehaviour
 
                 newCandy.name = string.Format("Candy[{0}][{1}]", x, y);
 
-                //se guarda cada caramelo creado en un array
-                candies[x, y]= newCandy;
-
+                //asignamos un id de la imagen de uno de todos los caramelos
+                //tambien se verifica que el caramelo elegino no se repita con uno de sus vecinos
                 do
                 {
                     idx = Random.Range(0, prefabs.Count);
@@ -74,7 +75,10 @@ public class BoardManager : MonoBehaviour
                 newCandy.GetComponent<SpriteRenderer>().sprite = sprite;
                 newCandy.GetComponent<Candy>().id = idx;
 
+                //le asignamos los caramelos como hijos del board manager
                 newCandy.transform.parent = this.transform;
+
+                //guardamos el caramelo creado en una matrix.
                 candies[x, y] = newCandy;
 
             }
@@ -90,11 +94,88 @@ public class BoardManager : MonoBehaviour
         return posicion;
     }
 
-
-
-    // Update is called once per frame
-    void Update()
+    /*
+    public IEnumerator FindNullCandies()
     {
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                if (candies[x, y].GetComponent<SpriteRenderer>().sprite == null)
+                {
+                    yield return StartCoroutine(MakeCandiesFall(x, y));
+                    break;
+                }
+            }
+        }
+
+
+        for (int x = 0; x < xSize; x++)
+        {
+            for (int y = 0; y < ySize; y++)
+            {
+                candies[x, y].GetComponent<Candy>().FindAllMatches();
+            }
+        }
 
     }
+    */
+    /*
+    private IEnumerator MakeCandiesFall(int x, int yStart,
+                                        float shiftDelay = 0.05f)
+    {
+
+        isShifting = true;
+
+        List<SpriteRenderer> renderes = new List<SpriteRenderer>();
+        int nullCandies = 0;
+
+        for (int y = yStart; y < ySize; y++)
+        {
+            SpriteRenderer spriteRenderer = candies[x, y].GetComponent<SpriteRenderer>();
+            if (spriteRenderer.sprite == null)
+            {
+                nullCandies++;
+            }
+            renderes.Add(spriteRenderer);
+        }
+
+        for (int i = 0; i < nullCandies; i++)
+        {
+            GUIManager.sharedInstance.Score += 10;
+
+            yield return new WaitForSeconds(shiftDelay);
+            for (int j = 0; j < renderes.Count - 1; j++)
+            {
+                renderes[j].sprite = renderes[j + 1].sprite;
+                renderes[j + 1].sprite = GetNewCandy(x, ySize - 1);
+            }
+        }
+
+        isShifting = false;
+    }
+
+    private Sprite GetNewCandy(int x, int y)
+    {
+        List<Sprite> possibleCandies = new List<Sprite>();
+        possibleCandies.AddRange(prefabs);
+
+        if (x > 0)
+        {
+            possibleCandies.Remove(
+                candies[x - 1, y].GetComponent<SpriteRenderer>().sprite);
+        }
+        if (x < xSize - 1)
+        {
+            possibleCandies.Remove(
+                candies[x + 1, y].GetComponent<SpriteRenderer>().sprite);
+        }
+        if (y > 0)
+        {
+            possibleCandies.Remove(
+                candies[x, y - 1].GetComponent<SpriteRenderer>().sprite);
+        }
+
+        return possibleCandies[Random.Range(0, possibleCandies.Count)];
+    }*/
 }
