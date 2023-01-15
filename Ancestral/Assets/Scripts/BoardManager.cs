@@ -94,7 +94,7 @@ public class BoardManager : MonoBehaviour
         return posicion;
     }
 
-    /*
+    
     public IEnumerator FindNullCandies()
     {
         for (int x = 0; x < xSize; x++)
@@ -119,12 +119,9 @@ public class BoardManager : MonoBehaviour
         }
 
     }
-    */
-    /*
-    private IEnumerator MakeCandiesFall(int x, int yStart,
-                                        float shiftDelay = 0.05f)
+    
+    private IEnumerator MakeCandiesFall(int x, int yStart, float shiftDelay = 0.05f)
     {
-
         isShifting = true;
 
         List<SpriteRenderer> renderes = new List<SpriteRenderer>();
@@ -142,7 +139,7 @@ public class BoardManager : MonoBehaviour
 
         for (int i = 0; i < nullCandies; i++)
         {
-            GUIManager.sharedInstance.Score += 10;
+            //GUIManager.sharedInstance.Score += 10;
 
             yield return new WaitForSeconds(shiftDelay);
             for (int j = 0; j < renderes.Count - 1; j++)
@@ -177,5 +174,5 @@ public class BoardManager : MonoBehaviour
         }
 
         return possibleCandies[Random.Range(0, possibleCandies.Count)];
-    }*/
+    }
 }

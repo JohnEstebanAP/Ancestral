@@ -162,12 +162,11 @@ public class Candy : MonoBehaviour
         return matchingCandies;
     }
 
-
     //podemos eliminar pareja de caramelos
     private bool clearMatch(Vector2[] directions)
     {
         List<GameObject> matchingCandies = new List<GameObject>();
-     
+      
         foreach(Vector2 direction in directions)
         {
             matchingCandies.AddRange(FindMatch(direction));
@@ -202,8 +201,8 @@ public class Candy : MonoBehaviour
         {
             spriteRenderer.sprite = null;
 
-            //StopCoroutine(BoardManager.sharedInstance.FindNullCandies());
-           // StartCoroutine(BoardManager.sharedInstance.FindNullCandies());
+            StopCoroutine(BoardManager.sharedInstance.FindNullCandies());
+            StartCoroutine(BoardManager.sharedInstance.FindNullCandies());
         }
     }
     
