@@ -71,6 +71,7 @@ public class Candy : MonoBehaviour
             }
             else
             {
+                //se valida se se esta realisando un movimiento de caramelos
                 if (CanSwipe())
                 {
                     SwapSprites(previousSelected);
@@ -78,7 +79,7 @@ public class Candy : MonoBehaviour
                     previousSelected.DeselectCandy();
                     FindAllMatches();
 
-                    //GUIManager.sharedInstance.MoveCounter--;
+                    GUIManager.sharedInstance.MoveCounter--;
                 }
                 else
                 {
