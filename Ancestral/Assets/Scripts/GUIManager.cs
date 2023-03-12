@@ -35,6 +35,12 @@ public class GUIManager : MonoBehaviour
         {
             moveCounter = value;
             movesText.text = "Moves: " + moveCounter;
+
+            if (moveCounter <= 0)
+            {
+                moveCounter = 0;
+                //StartCoroutine(GameOver());
+            }
         }
     }
 
@@ -66,5 +72,15 @@ public class GUIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private IEnumerable GameOver()
+    {
+
+        yield return new WaitUntil(() => !BoardManager.sharedInstance.isShifting);
+        //creamos un retrasopara que el usuaria pueda ver los cambios por unso segundos
+        yield return new WaitForSeconds(0.25f);
+
+        //TODO: invocar a una pantalla diseniada para el Game Over
     }
 }
