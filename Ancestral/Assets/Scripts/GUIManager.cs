@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour
 {
 
-    public Text scoreText;
-    public Text movesText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI movesText;
     private int moveCounter;
     private int score;
 
@@ -20,7 +21,7 @@ public class GUIManager : MonoBehaviour
         set
         {
             score = value;
-            scoreText.text = "Socore: " + score;
+            scoreText.text = "Puntos: " + score;
         }
     }
 
@@ -34,7 +35,7 @@ public class GUIManager : MonoBehaviour
         set
         {
             moveCounter = value;
-            movesText.text = "Moves: " + moveCounter;
+            movesText.text = "Movimientos: " + moveCounter;
 
             if (moveCounter <= 0)
             {
@@ -62,10 +63,10 @@ public class GUIManager : MonoBehaviour
         }
 
         moveCounter = 30;
-        movesText.text = "Moves: " + moveCounter;
+        movesText.text = "Movimientos: " + moveCounter;
 
         score = 0;
-        scoreText.text = "Socore: " + score; 
+        scoreText.text = "Puntos: " + score; 
     }
 
     // Update is called once per frame
