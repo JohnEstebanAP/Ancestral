@@ -34,7 +34,7 @@ public class BoardManager : MonoBehaviour
         }
 
 
-        Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size;
+        Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size* 1.2f;
         CreateInitialBoard(margin);
     }
 
