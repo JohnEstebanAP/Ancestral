@@ -390,12 +390,32 @@ PrefabInstance:
       value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_TreeDistance
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_AllowAutoConnect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_MaterialTemplate
       value: 
       objectReference: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_HeightmapPixelError
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_DetailObjectDistance
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_TreeBillboardDistance
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_TreeMaximumFullLODCount
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6699127925154375198, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_LocalPosition.x
