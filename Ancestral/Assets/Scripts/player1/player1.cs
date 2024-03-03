@@ -41,7 +41,7 @@ public class player1 : MonoBehaviour
 
         Vector3 move = transform.TransformDirection(new Vector3(horizontal, 0, vertical).normalized);
 
-        if (false)
+        if (isOnTheFloor)
         {
             speedboton.y = -2 * Time.deltaTime;
         }
