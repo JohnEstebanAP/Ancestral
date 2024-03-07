@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5960751, g: 0.8254042, b: 0.8962264, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.002
@@ -4236,6 +4236,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 221905798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &381344785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4026988788687868377, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_Name
+      value: PT_Fruit_Tree_01_logs
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1362.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 319.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 509.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99270564
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.06892496
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0035587929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.098854624
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -7.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.197
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371144052285426531, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -11.456
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0c32672766a81647b04690fc9ed3595, type: 3}
 --- !u!1 &393804046
 GameObject:
   m_ObjectHideFlags: 0
@@ -18249,13 +18318,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714164067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.1610871, y: 0.6277825, z: -0.13492875, w: 0.74948937}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 24.26, y: 79.9, z: 0}
 --- !u!1001 &1716400621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19375,13 +19444,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962539413}
     m_Modifications:
+    - target: {fileID: 635236275878452756, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2174287116337650280, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_TreeDistance
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_AllowAutoConnect
@@ -19401,7 +19474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_TreeBillboardDistance
-      value: 150
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4727468490860942602, guid: 4450232d23fe68e43a0421a17ea00c07, type: 3}
       propertyPath: m_TreeMaximumFullLODCount
@@ -23112,3 +23185,4 @@ SceneRoots:
   - {fileID: 982202132}
   - {fileID: 962539413}
   - {fileID: 1359320821}
+  - {fileID: 381344785}
