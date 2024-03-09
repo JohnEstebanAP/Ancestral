@@ -41,7 +41,7 @@ public class nexskybok : MonoBehaviour
             RenderSettings.fogDensity = Mathf.Lerp(0.002f, 0.02f, blend);
 
             // Cambia gradualmente la intensidad del viento
-            windZone.windMain = Mathf.Lerp(0f, 3.5f, blend);
+            windZone.windMain = Mathf.Lerp(0f, 2f, blend);
 
             yield return null;
         }
