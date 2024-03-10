@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 747758389562630921}
   - component: {fileID: 5386491064963372312}
   - component: {fileID: 4470169556317842916}
-  - component: {fileID: 4994674174385796565}
+  - component: {fileID: 131924202501836280}
   m_Layer: 0
   m_Name: Player1 1
   m_TagString: Untagged
@@ -293,14 +293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfe294a29a69124aaaf2b077b168187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 4470169556317842916}
   speed: 15
   mouseSensitivity: 100
   xRotationCamera: 0
   gravity: -10
   onTheFloor: {fileID: 8007021087639575555}
   cameraTransForm: {fileID: 189663868494111347}
-  distansFloor: 0.08
   maskFloor:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -331,7 +329,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4994674174385796565
+--- !u!54 &131924202501836280
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

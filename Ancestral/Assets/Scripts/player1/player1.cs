@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class player1 : MonoBehaviour
 {
-
-    public CharacterController controller;
+    CharacterController controller;
+    Vector3 speedboton;
+    float distansFloor = 0.08f;
 
     public float speed = 15f;
     public float mouseSensitivity = 100f;
@@ -16,10 +17,8 @@ public class player1 : MonoBehaviour
     public Transform onTheFloor;
     public Transform cameraTransForm;
 
-    public float distansFloor = 0.1f;
+   
     public LayerMask maskFloor;
-
-    Vector3 speedboton;
     public bool isOnTheFloor;
 
     // Start is called before the first frame update
@@ -27,6 +26,11 @@ public class player1 : MonoBehaviour
     {
         //Ocultar y bloquear el cursor para que no salga de la ventana del juego
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class player1 : MonoBehaviour
 
         if (isOnTheFloor)
         {
-            speedboton.y = -2 * Time.deltaTime;
+          speedboton.y = -5 * Time.deltaTime;
         }
         else
         {
