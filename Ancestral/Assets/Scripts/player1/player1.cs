@@ -41,11 +41,11 @@ public class player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnMovePlayer();
+        OnMovePlayer(joystickMove);
         onMoveView();
     }
 
-    private void OnMovePlayer()
+    private void OnMovePlayer(FloatingJoystick joystickMove)
     {
         isOnTheFloor = Physics.CheckSphere(onTheFloor.position, distansFloor, maskFloor);
 

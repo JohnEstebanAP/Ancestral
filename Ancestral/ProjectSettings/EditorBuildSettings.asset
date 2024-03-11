@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene1/scene1.unity
     guid: a31b3a1c6bd74d0408f6e09511970410
   - enabled: 1
-    path: Assets/Scenes/Scene-cave.unity
+    path: Assets/Scenes/Scene-cave/Scene-cave.unity
     guid: ccf83bc47bd3ee14d82b6e48772220e0
   - enabled: 1
     path: Assets/Scenes/MiniGame.unity
