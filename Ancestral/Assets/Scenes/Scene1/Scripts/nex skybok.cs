@@ -4,6 +4,8 @@ using UnityEngine;
 public class nexskybok : MonoBehaviour
 {
 
+    public new Camera camera;
+    public Light directionalLight;
     public Material newSkybox;
     public Material oldSkybox;
     public WindZone windZone;
@@ -13,6 +15,7 @@ public class nexskybok : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         // Comprueba si el objeto que entró al Trigger es el jugador
         if (other.gameObject.CompareTag("Player"))
         {
@@ -33,19 +36,21 @@ public class nexskybok : MonoBehaviour
             float blend2 = Mathf.Clamp01(t / (duration*2));
             // Cambia gradualmente el Skybox
             tempSkybox.Lerp(oldSkybox, newSkybox, blend2);
-            RenderSettings.skybox = tempSkybox;
+            camera.GetComponent<Skybox>().material = tempSkybox;
+
 
             // Cambia gradualmente la densidad de la niebla
-  
             RenderSettings.fogColor = Color.Lerp(color1, color2, blend);
-            RenderSettings.fogDensity = Mathf.Lerp(0.002f, 0.02f, blend);
+            RenderSettings.fogDensity = Mathf.Lerp(0.002f, 0.01f, blend);
 
             // Cambia gradualmente la intensidad del viento
             windZone.windMain = Mathf.Lerp(0f, 1.5f, blend);
 
+            // Cambia gradualmente la intensidad de la luz
+            directionalLight.intensity = Mathf.Lerp(1.5f, 0.7f, blend);
+
             yield return null;
         }
-        RenderSettings.skybox = newSkybox;
+        camera.GetComponent<Skybox>().material = newSkybox;
     }
-
 }
