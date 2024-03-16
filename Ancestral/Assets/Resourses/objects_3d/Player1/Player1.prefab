@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3063058082248837368}
   - component: {fileID: 6297139847470958493}
   - component: {fileID: 3887666589216353299}
+  - component: {fileID: 4912126329228808852}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -212,6 +213,21 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &4912126329228808852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850261254696833210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3b0d428ee2b614bbf887505b62c9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBody: {fileID: 0}
+  LookAxis: {x: 0, y: 0}
+  Sensivity: 40
 --- !u!1 &7991081706741030826
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,16 +492,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystickMove: {fileID: 0}
   joystickRotate: {fileID: 0}
-  speed: 15
+  _rotateSpeed: 0
+  _moveSpeed: 0
+  PlayerBody: {fileID: 0}
   mouseSensitivity: 50
-  xRotationCamera: 0
-  gravity: -10
-  onTheFloor: {fileID: 6717259912769533951}
+  controller: {fileID: 0}
   cameraTransForm: {fileID: 4213117876257734319}
-  maskFloor:
+  _currentSpeed: 0
+  _moveVector: {x: 0, y: 0, z: 0}
+  groundYOffset: 0
+  layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  isOnTheFloor: 0
+    m_Bits: 0
   isMouseActive: 0
 --- !u!143 &2670060541744355965
 CharacterController:
