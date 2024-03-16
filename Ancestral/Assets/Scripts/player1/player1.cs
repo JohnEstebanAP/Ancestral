@@ -50,6 +50,7 @@ public class player1 : MonoBehaviour
 
        // _moveVector = Vector3.zero;
         _moveVector = transform.right * horizontal + transform.forward * vertical;
+        _moveVector.y = velocity.y;
         _currentSpeed = _moveVector.magnitude;
      
         //_animator.SetFloat("Moving", _currentSpeed);
@@ -89,15 +90,17 @@ public class player1 : MonoBehaviour
 
     public void Gravity()
     {
-        if (!isGrounded()) 
-         velocity.y += gravity * Time.deltaTime;
-        else if(velocity.y < 0) velocity.y = -2f;
+        if (isGrounded() && velocity.y < 0) {
+            velocity.y = -1f;
+        }
+        else {
+            velocity.y += gravity * Time.deltaTime;
+        }
     }
 
     public bool isGrounded()
     {
-        spherePose = new Vector3(transform.position.x, transform.position.y - groundYOffset, transform.position.z);
-        if (Physics.CheckSphere(spherePose, controller.radius, layerMask)) return true;
+        if (controller.isGrounded) return true;
         return false;
     }
 }
