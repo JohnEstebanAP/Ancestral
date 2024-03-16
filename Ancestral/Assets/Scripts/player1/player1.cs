@@ -9,7 +9,8 @@ using UnityEngine;
 public class player1 : MonoBehaviour
 {
     public FloatingJoystick joystickMove;
-    public float _moveSpeed;
+    public float _moveSpeed; 
+    public float _moveSpeedStatic;
 
     public CharacterController controller;
 
@@ -67,11 +68,11 @@ public class player1 : MonoBehaviour
 
         if(joystickMove.Vertical <= -0.35f)
         {
-            _moveSpeed = 3.50f;
+            _moveSpeed = _moveSpeed/2;
         }
         else
         {
-            _moveSpeed = 5f;
+            _moveSpeed = _moveSpeedStatic;
         }
 
     }
