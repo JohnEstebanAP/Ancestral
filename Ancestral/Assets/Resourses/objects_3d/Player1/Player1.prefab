@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &74309294425381583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264386204037970337}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264386204037970337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74309294425381583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.051, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3436565346059172485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5906790047214916754
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,9 +256,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3b0d428ee2b614bbf887505b62c9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yRotationCamera: 0
   PlayerBody: {fileID: 0}
+  cameraTransForm: {fileID: 0}
+  joystickRotate: {fileID: 0}
+  isMouseActive: 0
   LookAxis: {x: 0, y: 0}
   Sensivity: 40
+  defaultCameraHeight: 3
+  shoulderHeight: 4
+  shoulderDistance: 0.7
+  defaultCameraDistance: -12
 --- !u!1 &7991081706741030826
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3203167538065722905}
+  - {fileID: 264386204037970337}
   m_Father: {fileID: 321441475824097559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2723884314755347398
@@ -491,20 +531,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickMove: {fileID: 0}
-  joystickRotate: {fileID: 0}
-  _rotateSpeed: 0
   _moveSpeed: 0
-  PlayerBody: {fileID: 0}
-  mouseSensitivity: 50
+  _moveSpeedStatic: 0
   controller: {fileID: 0}
-  cameraTransForm: {fileID: 4213117876257734319}
   _currentSpeed: 0
   _moveVector: {x: 0, y: 0, z: 0}
-  groundYOffset: 0
+  Ground: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  isMouseActive: 0
+  isGround: 0
+  GroundDistance: 0
+  Pressed: 0
+  jumpheight: 3
 --- !u!143 &2670060541744355965
 CharacterController:
   m_ObjectHideFlags: 0

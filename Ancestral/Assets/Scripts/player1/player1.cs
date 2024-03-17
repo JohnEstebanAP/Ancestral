@@ -6,7 +6,7 @@ using System.Threading;
 using TMPro;
 using UnityEngine;
 
-public class player1 : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public FloatingJoystick joystickMove;
     public float _moveSpeed; 
@@ -17,13 +17,17 @@ public class player1 : MonoBehaviour
     public float _currentSpeed;
     public Vector3 _moveVector;
 
-    [SerializeField] public float groundYOffset;
+    public Transform Ground;
     [SerializeField] private LayerMask layerMask;
-    
+    public bool isGround;
+    public float GroundDistance;
 
     private float gravity = -9.81f;
     private Vector3 velocity;
-    private Vector3 spherePose;
+
+    public bool Pressed;
+    public float jumpheight = 3f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +54,6 @@ public class player1 : MonoBehaviour
 
        // _moveVector = Vector3.zero;
         _moveVector = transform.right * horizontal + transform.forward * vertical;
-        _moveVector.y = velocity.y;
         _currentSpeed = _moveVector.magnitude;
      
         //_animator.SetFloat("Moving", _currentSpeed);
@@ -93,14 +96,25 @@ public class player1 : MonoBehaviour
         if (isGrounded() && velocity.y < 0) {
             velocity.y = -1f;
         }
-        else {
-            velocity.y += gravity * Time.deltaTime;
+
+        Vector3 Move = transform.right * joystickMove.Horizontal + transform.forward * joystickMove.Vertical;
+        controller.Move(Move  * _moveSpeed * Time.deltaTime);
+
+        if (isGrounded() && Pressed)
+        {
+          float jump = jumpheight * -2f * gravity;
+          velocity.y = Mathf.Sqrt(jump);
         }
+
+        velocity.y += gravity * Time.deltaTime;     
+        controller.Move(velocity * Time.deltaTime);
     }
 
     public bool isGrounded()
     {
-        if (controller.isGrounded) return true;
+        isGround = Physics.CheckSphere(Ground.position, GroundDistance, layerMask); 
+
+        if (isGround) return true;
         return false;
     }
 }

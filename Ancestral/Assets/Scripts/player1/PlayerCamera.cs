@@ -13,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
     public FixedJoystick joystickRotate;
     public bool isMouseActive;
     public Vector2 LookAxis;
-    public float Sensivity = 40f;
+    public float Sensivity = 10f;
 
     public float defaultCameraHeight = 3; // La altura de la cámara por defecto
     public float shoulderHeight = 4f; // La altura del hombro del personaje
@@ -42,8 +42,8 @@ public class PlayerCamera : MonoBehaviour
         }
         else
         {
-            Xmove = LookAxis.x * Sensivity * Time.deltaTime;
-            Ymove = LookAxis.y * Sensivity * Time.deltaTime;
+            Xmove = LookAxis.x * (Sensivity /5) * Time.deltaTime;
+            Ymove = LookAxis.y * (Sensivity / 5) * Time.deltaTime;
         }
 
         yRotationCamera -= Ymove;
