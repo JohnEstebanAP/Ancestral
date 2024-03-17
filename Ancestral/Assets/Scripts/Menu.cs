@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("MiniGame");
+        SceneManager.LoadScene("scene1");
     }
 
     public void Options()

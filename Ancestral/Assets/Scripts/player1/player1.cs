@@ -1,61 +1,120 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
-public class player1 : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
+    public FloatingJoystick joystickMove;
+    public float _moveSpeed; 
+    public float _moveSpeedStatic;
 
     public CharacterController controller;
 
-    public float speed = 15f;
-    public float mouseSensitivity = 100f;
-    public float xRotationCamera = 0f;
-    public float gravity = -10f;
+    public float _currentSpeed;
+    public Vector3 _moveVector;
 
-    public Transform onTheFloor;
-    public Transform cameraTransForm;
+    public Transform Ground;
+    [SerializeField] private LayerMask layerMask;
+    public bool isGround;
+    public float GroundDistance;
 
-    public float distansFloor = 0.1f;
-    public LayerMask maskFloor;
+    private float gravity = -9.81f;
+    private Vector3 velocity;
 
-    Vector3 speedboton;
-    public bool isOnTheFloor;
+    public bool Pressed;
+    public float jumpheight = 3f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         //Ocultar y bloquear el cursor para que no salga de la ventana del juego
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isOnTheFloor = Physics.CheckSphere(onTheFloor.position, distansFloor, maskFloor);
+        OnMovePlayer(joystickMove);
+        Gravity();
+   
+    }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        float mouseX = Input.GetAxis ("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis ("Mouse Y") * mouseSensitivity * Time.deltaTime;
+    private void OnMovePlayer(FloatingJoystick joystickMove)
+    {
+        
 
-        Vector3 move = transform.TransformDirection(new Vector3(horizontal, 0, vertical).normalized);
+        float horizontal = Input.GetAxis("Horizontal") + joystickMove.Horizontal ;
+        float vertical = Input.GetAxis("Vertical") + joystickMove.Vertical; 
 
-        if (isOnTheFloor)
+       // _moveVector = Vector3.zero;
+        _moveVector = transform.right * horizontal + transform.forward * vertical;
+        _currentSpeed = _moveVector.magnitude;
+     
+        //_animator.SetFloat("Moving", _currentSpeed);
+
+        //if (_currentSpeed != 0f){
+        //    Vector3 direction =  Vector3.RotateTowards( transform.forward, _moveVector, _rotateSpeed * Time.deltaTime, 0.0f);
+        //    transform.rotation = Quaternion.LookRotation(direction);
+        //    AnimationRun();
+        //}
+       // else if(_currentSpeed == 0f)
+       // {
+       //     AnimationIdle();
+       // }
+
+        controller.Move(_moveVector.normalized * _moveSpeed * Time.deltaTime);
+
+        if(joystickMove.Vertical <= -0.35f)
         {
-            speedboton.y = -2 * Time.deltaTime;
+            _moveSpeed = _moveSpeed/2;
         }
         else
         {
-          speedboton.y += gravity * Time.deltaTime;
+            _moveSpeed = _moveSpeedStatic;
         }
 
-        controller.Move(move * speed * Time.deltaTime + speedboton * Time.deltaTime);
+    }
 
-        xRotationCamera -= mouseY;
-        xRotationCamera = Math.Clamp(xRotationCamera, -90f, 90f);
-        cameraTransForm.localRotation = Quaternion.Euler(xRotationCamera, 0f, 0f);
+    public void AnimationRun()
+    {
+        //_animator.SetBool("Move", true);
+    }
 
-        transform.Rotate(Vector3.up * mouseX);
+    public void AnimationIdle()
+    {
+        //_animator.SetBool("Move", false);
+    }
+
+    public void Gravity()
+    {
+        if (isGrounded() && velocity.y < 0) {
+            velocity.y = -1f;
+        }
+
+        Vector3 Move = transform.right * joystickMove.Horizontal + transform.forward * joystickMove.Vertical;
+        controller.Move(Move  * _moveSpeed * Time.deltaTime);
+
+        if (isGrounded() && Pressed)
+        {
+          float jump = jumpheight * -2f * gravity;
+          velocity.y = Mathf.Sqrt(jump);
+        }
+
+        velocity.y += gravity * Time.deltaTime;     
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    public bool isGrounded()
+    {
+        isGround = Physics.CheckSphere(Ground.position, GroundDistance, layerMask); 
+
+        if (isGround) return true;
+        return false;
     }
 }
