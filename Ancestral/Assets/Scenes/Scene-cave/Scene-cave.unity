@@ -426,6 +426,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1080258336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 217791989043706958, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+  m_PrefabInstance: {fileID: 4607767887072175614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1080258340
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080258336}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2238999070388985150, guid: cb11d9181b21204479731d942aebf864, type: 3}
 --- !u!4 &1221755263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4213117876257734319, guid: 681006c71aacba24aa01c8f266560565, type: 3}
@@ -593,6 +620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5260932540703887679, guid: 063746ba6b1a1ed4d872fcb5a400d35a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05dd3662ae5ee1d4da50183be0e4b31c, type: 3}
     - target: {fileID: 5541281199914380294, guid: 063746ba6b1a1ed4d872fcb5a400d35a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 120
@@ -1016,7 +1047,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 217791989043706958, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080258340}
   m_SourcePrefab: {fileID: 100100000, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
 --- !u!1001 &4999170193698109487
 PrefabInstance:

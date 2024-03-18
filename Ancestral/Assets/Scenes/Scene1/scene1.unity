@@ -24603,6 +24603,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5260932540703887679, guid: 063746ba6b1a1ed4d872fcb5a400d35a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 05dd3662ae5ee1d4da50183be0e4b31c, type: 3}
     - target: {fileID: 5812271174215109916, guid: 063746ba6b1a1ed4d872fcb5a400d35a, type: 3}
       propertyPath: m_Enabled
       value: 1
