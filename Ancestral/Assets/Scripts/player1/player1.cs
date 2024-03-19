@@ -26,7 +26,7 @@ public class Player1 : MonoBehaviour
     private Vector3 velocity;
 
     public bool Pressed;
-    public float jumpheight = 3f;
+    private float jumpheight = 0.25f;
     
 
     // Start is called before the first frame update
@@ -95,19 +95,20 @@ public class Player1 : MonoBehaviour
     {
         if (isGrounded() && velocity.y < 0) {
             velocity.y = -1f;
+        }else
+        {
+            velocity.y += gravity * Time.deltaTime;
         }
 
-        Vector3 Move = transform.right * joystickMove.Horizontal + transform.forward * joystickMove.Vertical;
-        controller.Move(Move  * _moveSpeed * Time.deltaTime);
 
         if (isGrounded() && Pressed)
         {
-          float jump = jumpheight * -2f * gravity;
-          velocity.y = Mathf.Sqrt(jump);
+             float jump = jumpheight * -2f * gravity;
+             velocity.y = Mathf.Sqrt(jump);
+             velocity.y += gravity * Time.deltaTime;
         }
 
-        velocity.y += gravity * Time.deltaTime;     
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * _moveSpeed * Time.deltaTime);
     }
 
     public bool isGrounded()

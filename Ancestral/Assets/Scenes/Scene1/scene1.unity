@@ -24901,6 +24901,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8782808803346147692}
     - target: {fileID: 2627900094916660761, guid: 681006c71aacba24aa01c8f266560565, type: 3}
+      propertyPath: jumpheight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627900094916660761, guid: 681006c71aacba24aa01c8f266560565, type: 3}
       propertyPath: joystickMove
       value: 
       objectReference: {fileID: 502819392}
