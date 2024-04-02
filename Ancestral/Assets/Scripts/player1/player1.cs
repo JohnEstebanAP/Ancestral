@@ -40,9 +40,11 @@ public class Player1 : MonoBehaviour
         Gravity();
 
         //RippleCamera.transform.position = transform.position + Vector3.up * 10;
-        if (isGrounded()) ripple.transform.position = transform.position + transform.forward;
-        else ripple.transform.position = transform.position;
-        Shader.SetGlobalVector("_Player", transform.position);
+        if (ripple != null) {
+            if (isGrounded()) ripple.transform.position = transform.position + transform.forward;
+            else ripple.transform.position = transform.position;
+            Shader.SetGlobalVector("_Player", transform.position);
+        }
     }
 
     private void OnMovePlayer(FloatingJoystick joystickMove)
@@ -79,48 +81,41 @@ public class Player1 : MonoBehaviour
             _moveSpeed = _moveSpeedStatic;
         }
 
-        
-        if (inWater) ripple.gameObject.SetActive(true);
-        else ripple.gameObject.SetActive(false);
-        Physics.Raycast(transform.position, Vector3.down, 2.7f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(transform.position, Vector3.down* 2.7f);
-
-        //
-        float height = controller.height + controller.radius;
-        inWater = Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, height*2, LayerMask.GetMask("Water"));
-        Debug.DrawRay(transform.position + Vector3.up * height, Vector3.down* height);
-
-    }
-
-    void CreateRipple(int Start, int End, int Delta, float Speed, float Size, float Lifetime)
-    {
-        Vector3 forward = ripple.transform.eulerAngles;
-        forward.y = Start;
-        ripple.transform.eulerAngles = forward;
-
-        for (int i = Start; i < End; i += Delta)
+        if (ripple != null)
         {
-            ripple.Emit(transform.position + ripple.transform.forward * 1.15f, ripple.transform.forward * Speed, Size, Lifetime, Color.white);
-            ripple.transform.Rotate(Vector3.up * Delta, Space.World);
+
+            if (inWater) ripple.gameObject.SetActive(true);
+            else ripple.gameObject.SetActive(false);
+            Physics.Raycast(transform.position, Vector3.down, 2.7f, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, Vector3.down * 2.7f);
+
+            //
+            float height = controller.height + controller.radius;
+            inWater = Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, height * 2, LayerMask.GetMask("Water"));
+            Debug.DrawRay(transform.position + Vector3.up * height, Vector3.down * height);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
-     if (other.gameObject.layer == 4)
+        if (ripple != null)
         {
-            ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
+            if (other.gameObject.layer == 4)
+            {
+                ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
+            }
         }
     }
 
 
     private void OnTriggerExit(Collider other)
     {
+        if (ripple != null) { 
         if (other.gameObject.layer == 4)
         {
             ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
         }
+    }
     }
     public void AnimationRun()
     {
