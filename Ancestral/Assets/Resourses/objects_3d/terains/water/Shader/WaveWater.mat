@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaveWater
-  m_Shader: {fileID: -6465566751694194690, guid: a8bfba55d69b1c449b052ef16a282ec3, type: 3}
-  m_Parent: {fileID: 0}
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Parent: {fileID: -6547478636273604730, guid: 2666ff9b64c8e69498abc8333b0658e9, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -17,40 +17,16 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - Texture2D_b2e23fa02daf484eb6ce93a138cb29f1:
-        m_Texture: {fileID: 2800000, guid: 0150f0e16c862a3448aaebcd2aa33b8c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - Vector1_2ff9b2cf59744a83a8589e0ea70e9d76: 0.05
-    - Vector1_41face0c6150451da9797ac947d78c61: 0.15
-    - Vector1_548288462717494ab96c586226c3ed3d: 2
-    - Vector1_b232f1caa9ed41cb8817b777f742db39: 0.95
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - Color_c349ea25d3fe4b90861270af5d5c4e06: {r: 1, g: 1, b: 1, a: 0}
-    - Vector4_af03cf2b579c40d89bf6c0f0df8c9d41: {r: 5, g: 5, b: 0.1, a: 0.1}
-    - Vector4_f0fb6a19f77b48e4b37aa416dc4e3cf5: {r: 4.5, g: 5.5, b: 0.13, a: 0.09}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &2219304873969889533
 MonoBehaviour:
