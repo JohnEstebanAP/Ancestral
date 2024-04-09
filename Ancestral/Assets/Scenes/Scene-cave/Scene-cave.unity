@@ -30646,6 +30646,18 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 379579545283214070, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Range
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 379579545283214070, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Intensity
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 379579545283214070, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_SpotAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 379579545283214070, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
@@ -30664,6 +30676,18 @@ PrefabInstance:
     - target: {fileID: 379579545283214070, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_BoundingSphereOverride.z
       value: -27.315237
+      objectReference: {fileID: 0}
+    - target: {fileID: 428783189432223025, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Range
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 428783189432223025, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Intensity
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 428783189432223025, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_SpotAngle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 428783189432223025, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_Lightmapping
@@ -30976,6 +31000,18 @@ PrefabInstance:
     - target: {fileID: 3001618878873256154, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_Intensity
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080788707693187714, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Range
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080788707693187714, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Intensity
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080788707693187714, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_SpotAngle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3080788707693187714, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_Lightmapping
@@ -31385,6 +31421,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332320777978420982, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5335140052057206541, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_ReceiveGI
       value: 1
@@ -31682,8 +31722,24 @@ PrefabInstance:
       value: 17.95
       objectReference: {fileID: 0}
     - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Range
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_Intensity
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_SpotAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826366669844571254, guid: 3ebb9a17856644b43b232b2bb48c9108, type: 3}
       propertyPath: m_BoundingSphereOverride.w
