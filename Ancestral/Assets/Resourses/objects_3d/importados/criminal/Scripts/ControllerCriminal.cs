@@ -100,7 +100,7 @@ public class ControllerCriminal : MonoBehaviour
                 direction.y = velocityGravity.y;
                 direction = direction.normalized;
 
-                float velocity = (_moveSpeed * 0.8f);
+                float velocity = (_moveSpeed * 0.9f);
 
                 // Mueve el personaje en esa dirección
                 controller.Move(direction * velocity * Time.deltaTime);
