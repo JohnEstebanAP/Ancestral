@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -29,7 +30,9 @@ public class Player1 : MonoBehaviour
 
     public Renderer renderer;
     public Shader redShader;
+    public Shader goldShader;
     public GameObject vfxKill;
+    public GameObject vfxCoins;
     private Material[] material;
     
     private Shader originalShader;
@@ -117,7 +120,13 @@ public class Player1 : MonoBehaviour
             material[1].shader = redShader;
         }
 
-        
+        if (other.CompareTag("coins"))
+        {
+            vfxCoins.SetActive(true);
+            material[1].shader = goldShader;
+        }
+
+
         if (ripple != null)
         {
             if (other.gameObject.layer == 4)
@@ -145,8 +154,26 @@ public class Player1 : MonoBehaviour
             vfxKill.SetActive(false);
             material[1].shader = originalShader;
         }
-      
+
+        if (other.CompareTag("coins"))
+        {
+            other.gameObject.SetActive(false);
+            StartCoroutine(HandleCoin());    
+        }
     }
+
+    // Coroutine para manejar el retraso
+    IEnumerator HandleCoin()
+    {
+        // Espera 5 segundos
+        yield return new WaitForSeconds(1);
+
+        // Después del retraso, ejecuta tu código
+        vfxCoins.SetActive(false);
+        material[1].shader = originalShader;
+        
+    }
+
     public void AnimationRun()
     {
         //_animator.SetBool("Move", true);

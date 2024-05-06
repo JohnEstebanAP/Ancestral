@@ -12,11 +12,6 @@ public class ControllerCriminal : MonoBehaviour
     public float degree;
 
     private GameObject target;
-
-    public Transform Ground;
-    public bool isGround;
-    public float GroundDistance;
-    [SerializeField] private LayerMask layerMask;
     public CharacterController controller;
     public float _moveSpeed;
 
@@ -121,7 +116,7 @@ public class ControllerCriminal : MonoBehaviour
 
     public void Gravity()
     {
-        if (isGrounded() && velocityGravity.y < 0)
+        if (velocityGravity.y < 0)
         {
             velocityGravity.y = -1f;
         }
@@ -129,13 +124,5 @@ public class ControllerCriminal : MonoBehaviour
         {
             velocityGravity.y += gravity;
         }
-    }
-
-    public bool isGrounded()
-    {
-        isGround = Physics.CheckSphere(Ground.position, GroundDistance, layerMask);
-
-        if (isGround) return true;
-        return false;
     }
 }

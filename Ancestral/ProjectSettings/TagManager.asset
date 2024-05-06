@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - criminal
+  - coins
   layers:
   - Default
   - TransparentFX
