@@ -1,39 +1,9 @@
 fileFormatVersion: 2
-guid: b90641188036e7a46897a5ad55b7b6d6
+guid: dad27f3eb989bf74eacd30ddb9fbdd32
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Criminal_MAT
-    second: {fileID: 2100000, guid: ed1f045570fd2e44e9ec73762810dbd6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: ee42054c6c0159d4c9713a7c1cfcb4fa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: e9c60bee64de899439d3b0396be9253a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: cf465fd22ef1ae0438b719c5a0877e09, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: eee3becd22c0a224cae9e682476f06ed, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 71f873b6898852747b0821b54792b9b3, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

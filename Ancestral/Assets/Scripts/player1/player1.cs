@@ -50,7 +50,6 @@ public class Player1 : MonoBehaviour
     private void OnMovePlayer(FloatingJoystick joystickMove)
     {
         
-
         float horizontal = Input.GetAxis("Horizontal") + joystickMove.Horizontal ;
         float vertical = Input.GetAxis("Vertical") + joystickMove.Vertical; 
 
@@ -83,7 +82,6 @@ public class Player1 : MonoBehaviour
 
         if (ripple != null)
         {
-
             if (inWater) ripple.gameObject.SetActive(true);
             else ripple.gameObject.SetActive(false);
             Physics.Raycast(transform.position, Vector3.down, 2.7f, LayerMask.GetMask("Ground"));
@@ -98,6 +96,12 @@ public class Player1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("criminal")) {
+            print("Daño");
+        }
+
+        
         if (ripple != null)
         {
             if (other.gameObject.layer == 4)
@@ -105,6 +109,8 @@ public class Player1 : MonoBehaviour
                 ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
             }
         }
+
+
     }
 
 
