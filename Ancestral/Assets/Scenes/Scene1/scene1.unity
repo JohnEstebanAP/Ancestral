@@ -3075,6 +3075,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5381386135662447605, guid: 21a364ddeffc797439f2a5721660b0e6, type: 3}
   m_PrefabInstance: {fileID: 122691876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &124164345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2268879752705980299, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+  m_PrefabInstance: {fileID: 212806192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &124582045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7022826003607571425, guid: 2c59246f075efff4eacdd481ad75421a, type: 3}
@@ -5143,6 +5148,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+      propertyPath: vfxKill
+      value: 
+      objectReference: {fileID: 124164345}
+    - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 298917731}
+    - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+      propertyPath: redShader
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: a9dbe3104cfee2a4bb1c19351d3f050c, type: 3}
+    - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
       propertyPath: joystickMove
       value: 
       objectReference: {fileID: 352800908}
@@ -6879,6 +6896,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 1, z: 0.5}
   m_DirtyAABB: 0
+--- !u!23 &298917731 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 204172418553757167, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+  m_PrefabInstance: {fileID: 212806192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304142789
 GameObject:
   m_ObjectHideFlags: 0

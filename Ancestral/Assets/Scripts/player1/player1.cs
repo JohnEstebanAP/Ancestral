@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Player1 : MonoBehaviour
@@ -23,14 +24,27 @@ public class Player1 : MonoBehaviour
     private float jumpheight = 0.25f;
 
     public ParticleSystem ripple;
+    
     private bool inWater;
 
+    public Renderer renderer;
+    public Shader redShader;
+    public GameObject vfxKill;
+    private Material[] material;
+    
+    private Shader originalShader;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         //Ocultar y bloquear el cursor para que no salga de la ventana del juego
         // Cursor.lockState = CursorLockMode.Locked;
+        
+        material = renderer.materials;
+
+        // Guarda el shader original
+        originalShader = material[1].shader;
+        print("Shader" + material );       
     }
 
     // Update is called once per frame
@@ -96,9 +110,11 @@ public class Player1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        print("*************** Material: " + material[1].name);
+        print("*************** Shader: " + redShader.name);
         if (other.CompareTag("criminal")) {
-            print("Daño");
+            vfxKill.SetActive(true);
+            material[1].shader = redShader;
         }
 
         
@@ -117,11 +133,19 @@ public class Player1 : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (ripple != null) { 
-        if (other.gameObject.layer == 4)
-        {
-            ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
+             if (other.gameObject.layer == 4)
+                {
+                  ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
+             }
+
         }
-    }
+
+        if (other.CompareTag("criminal"))
+        {
+            vfxKill.SetActive(false);
+            material[1].shader = originalShader;
+        }
+      
     }
     public void AnimationRun()
     {

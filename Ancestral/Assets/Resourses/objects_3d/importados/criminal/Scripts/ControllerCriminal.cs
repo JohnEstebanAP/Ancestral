@@ -83,7 +83,7 @@ public class ControllerCriminal : MonoBehaviour
         else {
 
             
-            if (Vector3.Distance(transform.position, target.transform.position) > 2)
+            if (Vector3.Distance(transform.position, target.transform.position) > 1.5f)
             {
                endAttack();
                var lookPos = target.transform.position - transform.position;
