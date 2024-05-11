@@ -36,6 +36,10 @@ public class Player1 : MonoBehaviour
     private Material[] material;
     
     private Shader originalShader;
+
+    public logiBarLife logiBarLife;
+
+    public float damage = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -153,6 +157,8 @@ public class Player1 : MonoBehaviour
         {
             vfxKill.SetActive(false);
             material[1].shader = originalShader;
+
+            logiBarLife.lifeNow -= damage;
         }
 
         if (other.CompareTag("coins"))
