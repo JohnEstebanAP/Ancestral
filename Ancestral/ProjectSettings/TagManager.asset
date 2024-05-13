@@ -7,6 +7,8 @@ TagManager:
   - Fire
   - criminal
   - coins
+  - wooded
+  - horse
   layers:
   - Default
   - TransparentFX

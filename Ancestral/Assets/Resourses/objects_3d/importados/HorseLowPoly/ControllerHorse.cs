@@ -13,6 +13,7 @@ public class ControllerHorse: MonoBehaviour
 
     private float gravity = -9.81f;
     private Vector3 velocityGravity;
+    private bool wooded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,28 +29,30 @@ public class ControllerHorse: MonoBehaviour
     }
 
     public void enemyBehavior() {
-     
-            if (Vector3.Distance(transform.position, target.transform.position) > 5f)
-            {
-               var lookPos = target.transform.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 4);
 
-                animator.SetBool("walk", false);
-                animator.SetBool("run", true);
-                animator.SetBool("attack", false);
+        if (Vector3.Distance(transform.position, target.transform.position) > 5f && !wooded)
+        {
+            var lookPos = target.transform.position - transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 4);
 
-                // Calcula la dirección en la que el personaje está mirando
-                Vector3 direction = transform.rotation * Vector3.forward;
-                direction.y = velocityGravity.y;
-                direction = direction.normalized;
+            animator.SetBool("walk", true);
 
-                float velocity = (_moveSpeed * 0.9f);
+            // Calcula la dirección en la que el personaje está mirando
+            Vector3 direction = transform.rotation * Vector3.forward;
+            direction.y = velocityGravity.y;
+            direction = direction.normalized;
 
-                // Mueve el personaje en esa dirección
-                controller.Move(direction * velocity * Time.deltaTime);
-            }                   
+           
+            // Mueve el personaje en esa dirección
+            controller.Move(direction * _moveSpeed * Time.deltaTime);
+        }else if(wooded){
+            controller.Move(Vector3.forward * _moveSpeed * Time.deltaTime);
+        }
+        else {
+            animator.SetBool("walk", false);
+        }                   
     }
 
 
@@ -65,5 +68,13 @@ public class ControllerHorse: MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("wooded"))
+        {
+            wooded = true;
+            print("iniciar uida del caballo");
+        }
+    }
 }
