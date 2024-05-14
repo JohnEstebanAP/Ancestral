@@ -12,6 +12,8 @@ public class nexskybok : MonoBehaviour
     public float duration = 480.0f; // Duración de la transición en segundos
     Color color1 = new Color(0.6f, 0.82f, 0.89f, 1f); // Color 98D3E5 en formato RGB
     Color color2 = new Color(0.38f, 0.44f, 0.48f, 1f); // Color 626F7B en formato RGB
+    public GameObject fire;
+    public GameObject criminals;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +28,8 @@ public class nexskybok : MonoBehaviour
 
     IEnumerator ChangeSkyboxAndFog()
     {
+        fire.SetActive(true);
+        criminals.SetActive(true);
         float t = 0;
         Material tempSkybox = new Material(oldSkybox);
 
@@ -52,5 +56,7 @@ public class nexskybok : MonoBehaviour
             yield return null;
         }
         camera.GetComponent<Skybox>().material = newSkybox;
+
+        
     }
 }
