@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Player1 : MonoBehaviour
@@ -22,7 +21,7 @@ public class Player1 : MonoBehaviour
     private Vector3 velocity;
 
     public bool Pressed;
-    private float jumpheight = 0.25f;
+    public float jumpheight = 0.25f;
 
     public ParticleSystem ripple;
     
