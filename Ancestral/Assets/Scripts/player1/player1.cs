@@ -21,7 +21,7 @@ public class Player1 : MonoBehaviour
     private float gravity = -9.81f;
     private Vector3 velocity;
 
-    public bool Pressed;
+    public bool onPressedJumping;
     public float jumpheight = 0.25f;
 
     public ParticleSystem ripple;
@@ -88,9 +88,18 @@ public class Player1 : MonoBehaviour
         print("****************** Horizontal:"+ horizontalVertical);
 
 
+
+        if (jumpPlayer())
+        {
+            controllerAnimator(vertical, horizontal, false,true);
+            return;
+        }
+
+
+
         if (vertical != 0 || horizontal != 0)
         {
-            controllerAnimator(vertical, horizontal, false);
+            controllerAnimator(vertical, horizontal, false, false);
 
             _moveVector = transform.right * horizontal + transform.forward * vertical;
             _currentSpeed = _moveVector.magnitude;
@@ -101,7 +110,7 @@ public class Player1 : MonoBehaviour
 
         }
         else {
-            controllerAnimator(vertical, horizontal, true);
+            controllerAnimator(vertical, horizontal, true, false);
         }
         
 
@@ -119,7 +128,17 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    void controllerAnimator(float moveVertical, float moveHorizontal, bool isIdle) {
+    void controllerAnimator(float moveVertical, float moveHorizontal, bool isIdle, bool isPresseJumping) {
+
+
+        if (isPresseJumping) { 
+            isWalking = false;
+            isRuning = false;
+            isJumping = true;
+
+            setStateAnimator();
+            return;
+        }
 
         if (isIdle)
         {
@@ -228,15 +247,20 @@ public class Player1 : MonoBehaviour
         
     }
 
-    public void AnimationRun()
-    {
-        //_animator.SetBool("Move", true);
+    bool jumpPlayer() {
+
+        if (isGrounded() && onPressedJumping)
+        {
+            float jump = jumpheight * -2f * gravity;
+            velocity.y = Mathf.Sqrt(jump);
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * _moveSpeed * Time.deltaTime);
+            return true;
+        }
+        return false;
     }
 
-    public void AnimationIdle()
-    {
-        //_animator.SetBool("Move", false);
-    }
 
     public void Gravity()
     {
@@ -245,14 +269,6 @@ public class Player1 : MonoBehaviour
         }else
         {
             velocity.y += gravity * Time.deltaTime;
-        }
-
-
-        if (isGrounded() && Pressed)
-        {
-             float jump = jumpheight * -2f * gravity;
-             velocity.y = Mathf.Sqrt(jump);
-             velocity.y += gravity * Time.deltaTime;
         }
 
         controller.Move(velocity * _moveSpeed * Time.deltaTime);

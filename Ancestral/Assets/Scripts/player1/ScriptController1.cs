@@ -17,6 +17,6 @@ public class ScriptController : MonoBehaviour
     void Update()
     {
         _PlayerCamera.LookAxis = _FixedTouchField.TouchDist;
-        _Player1.Pressed = _FixedButton.Pressed;
+        _Player1.onPressedJumping = _FixedButton.Pressed;
     }
 }
