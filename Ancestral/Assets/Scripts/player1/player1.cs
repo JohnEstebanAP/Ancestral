@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player1 : MonoBehaviour
 {
     public FloatingJoystick joystickMove;
-    public float _moveSpeed; 
-    public float _moveSpeedStatic;
+    public float moveSpeed; 
+    private float _moveSpeed; 
 
     public CharacterController controller;
 
@@ -39,6 +40,14 @@ public class Player1 : MonoBehaviour
     public logiBarLife logiBarLife;
 
     public float damage = 2.0f;
+
+
+    //variables para la animacion
+    public Animator animator;
+    private bool isRuning = false;
+    private bool isWalking = false;
+    private bool isJumping = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,34 +80,30 @@ public class Player1 : MonoBehaviour
     {
         
         float horizontal = Input.GetAxis("Horizontal") + joystickMove.Horizontal ;
-        float vertical = Input.GetAxis("Vertical") + joystickMove.Vertical; 
+        float vertical = Input.GetAxis("Vertical") + joystickMove.Vertical;
 
-       // _moveVector = Vector3.zero;
-        _moveVector = transform.right * horizontal + transform.forward * vertical;
-        _currentSpeed = _moveVector.magnitude;
-     
-        //_animator.SetFloat("Moving", _currentSpeed);
+        float horizontalVertical = horizontal + vertical;
 
-        //if (_currentSpeed != 0f){
-        //    Vector3 direction =  Vector3.RotateTowards( transform.forward, _moveVector, _rotateSpeed * Time.deltaTime, 0.0f);
-        //    transform.rotation = Quaternion.LookRotation(direction);
-        //    AnimationRun();
-        //}
-       // else if(_currentSpeed == 0f)
-       // {
-       //     AnimationIdle();
-       // }
 
-        controller.Move(_moveVector.normalized * _moveSpeed * Time.deltaTime);
+        print("****************** Horizontal:"+ horizontalVertical);
 
-        if(joystickMove.Vertical <= -0.35f)
+
+        if (vertical != 0 || horizontal != 0)
         {
-            _moveSpeed = _moveSpeed/2;
+            controllerAnimator(vertical, horizontal, false);
+
+            _moveVector = transform.right * horizontal + transform.forward * vertical;
+            _currentSpeed = _moveVector.magnitude;
+
+
+
+            controller.Move(_moveVector.normalized * _moveSpeed * Time.deltaTime);
+
         }
-        else
-        {
-            _moveSpeed = _moveSpeedStatic;
+        else {
+            controllerAnimator(vertical, horizontal, true);
         }
+        
 
         if (ripple != null)
         {
@@ -112,6 +117,50 @@ public class Player1 : MonoBehaviour
             inWater = Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, height * 2, LayerMask.GetMask("Water"));
             Debug.DrawRay(transform.position + Vector3.up * height, Vector3.down * height);
         }
+    }
+
+    void controllerAnimator(float moveVertical, float moveHorizontal, bool isIdle) {
+
+        if (isIdle)
+        {
+            isWalking = false;
+            isRuning = false;
+            isJumping = false;
+
+            setStateAnimator();
+            return;
+        }
+        //||
+        if ((moveVertical >= -0.5 && moveVertical <= 0.5) && (moveHorizontal >= -0.5 && moveHorizontal <= 0.5))
+        {
+            isWalking = true;
+            isRuning = false;
+            isJumping = false;
+           
+            if (moveVertical >= -0.35f && moveVertical <= -0.35f)
+            {
+                _moveSpeed = moveSpeed / 5;
+            }
+            else {
+                _moveSpeed = moveSpeed / 3;
+            }
+        }
+        else {
+            _moveSpeed = moveSpeed;
+            isWalking = false;
+            isRuning = true;
+            isJumping = false;
+
+        }
+
+        setStateAnimator();
+        return;
+    }
+
+    void setStateAnimator() {
+        animator.SetBool("isRuning", isRuning);
+        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("isJumping", isJumping);
     }
 
     private void OnTriggerEnter(Collider other)
