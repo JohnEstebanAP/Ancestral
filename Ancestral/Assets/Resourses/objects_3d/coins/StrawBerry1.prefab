@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504563662797250287}
+  - component: {fileID: 6488805631970803222}
+  - component: {fileID: 2277100169421985853}
   m_Layer: 0
-  m_Name: GameObject (20)
-  m_TagString: Untagged
+  m_Name: StrawBerry1
+  m_TagString: coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,39 @@ Transform:
   - {fileID: 2222189006900401534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6488805631970803222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586516303254437457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1b0d68608f3de47a98b1c0a6cba2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2277100169421985853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586516303254437457}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4802246, y: 0.8214569, z: 0.60388184}
+  m_Center: {x: 0.027038574, y: 0.37870026, z: -0.0038452148}
 --- !u!1001 &9189204561996392493
 PrefabInstance:
   m_ObjectHideFlags: 0

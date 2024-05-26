@@ -653,6 +653,7 @@ GameObject:
   - component: {fileID: 8827990501803526935}
   - component: {fileID: 6193794986604915888}
   - component: {fileID: 349474552983350270}
+  - component: {fileID: 8394159295424417985}
   - component: {fileID: 8704628690713476355}
   - component: {fileID: 1125814804629483638}
   m_Layer: 0
@@ -694,8 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickMove: {fileID: 0}
-  _moveSpeed: 15
-  _moveSpeedStatic: 20
+  moveSpeed: 0
   controller: {fileID: 6193794986604915888}
   _currentSpeed: 15
   _moveVector: {x: 0, y: 0, z: 0}
@@ -705,7 +705,7 @@ MonoBehaviour:
     m_Bits: 64
   isGround: 0
   GroundDistance: 0.3
-  Pressed: 0
+  onPressedJumping: 0
   jumpheight: 0.25
   ripple: {fileID: 0}
   renderer: {fileID: 0}
@@ -715,6 +715,7 @@ MonoBehaviour:
   vfxCoins: {fileID: 0}
   logiBarLife: {fileID: 0}
   damage: 2
+  animator: {fileID: 0}
 --- !u!143 &6193794986604915888
 CharacterController:
   m_ObjectHideFlags: 0
@@ -768,6 +769,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8394159295424417985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091775902221497951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7790b15ba945f46aefed7be06910c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8704628690713476355
 MonoBehaviour:
   m_ObjectHideFlags: 0

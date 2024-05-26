@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player1 : MonoBehaviour
 {
@@ -33,9 +35,8 @@ public class Player1 : MonoBehaviour
     public Shader goldShader;
     public GameObject vfxKill;
     public GameObject vfxCoins;
-    private Material[] material;
-    
-    private Shader originalShader;
+    private List<Material> materials = new List<Material>();
+    private  List<Shader> originalShader = new List<Shader>();
 
     public logiBarLife logiBarLife;
 
@@ -55,11 +56,12 @@ public class Player1 : MonoBehaviour
         //Ocultar y bloquear el cursor para que no salga de la ventana del juego
         // Cursor.lockState = CursorLockMode.Locked;
         
-        material = renderer.materials;
+        materials = renderer.materials.ToList();
 
         // Guarda el shader original
-        originalShader = material[1].shader;
-        print("Shader" + material );       
+        foreach (var material in materials) {
+            originalShader.Add(material.shader);
+        }   
     }
 
     // Update is called once per frame
@@ -78,24 +80,16 @@ public class Player1 : MonoBehaviour
 
     private void OnMovePlayer(FloatingJoystick joystickMove)
     {
-        
         float horizontal = Input.GetAxis("Horizontal") + joystickMove.Horizontal ;
         float vertical = Input.GetAxis("Vertical") + joystickMove.Vertical;
 
         float horizontalVertical = horizontal + vertical;
-
-
-        print("****************** Horizontal:"+ horizontalVertical);
-
-
 
         if (jumpPlayer())
         {
             controllerAnimator(vertical, horizontal, false,true);
             return;
         }
-
-
 
         if (vertical != 0 || horizontal != 0)
         {
@@ -184,19 +178,12 @@ public class Player1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("*************** Material: " + material[1].name);
-        print("*************** Shader: " + redShader.name);
+        
         if (other.CompareTag("criminal")) {
             vfxKill.SetActive(true);
-            material[1].shader = redShader;
+            updateStateShaders(redShader);
+       
         }
-
-        if (other.CompareTag("coins"))
-        {
-            vfxCoins.SetActive(true);
-            material[1].shader = goldShader;
-        }
-
 
         if (ripple != null)
         {
@@ -205,10 +192,21 @@ public class Player1 : MonoBehaviour
                 ripple.Emit(transform.position, Vector3.zero, 5, 0.1f, Color.white);
             }
         }
-
-
     }
 
+    private void updateStateShaders(Shader shader) {
+        foreach (var material in materials)
+        {
+            material.shader = shader;
+        }
+    }
+
+    private void restoreStateShaders() {
+        for (int i = 0; i < materials.Count; i++)
+        {
+            materials[i].shader = originalShader[i];
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -223,28 +221,39 @@ public class Player1 : MonoBehaviour
         if (other.CompareTag("criminal"))
         {
             vfxKill.SetActive(false);
-            material[1].shader = originalShader;
 
-            logiBarLife.lifeNow -= damage;
-        }
+           restoreStateShaders();
 
-        if (other.CompareTag("coins"))
-        {
-            other.gameObject.SetActive(false);
-            StartCoroutine(HandleCoin());    
+           logiBarLife.lifeNow -= damage;
         }
+  
     }
 
-    // Coroutine para manejar el retraso
-    IEnumerator HandleCoin()
-    {
-        // Espera 5 segundos
-        yield return new WaitForSeconds(1);
+   
+    public void UpdateInventoryActiveVFX(PlayerInventory playerInventory) {
+        print("****************** actulizando le estado del player ***************");
+        //Etrada
+        vfxCoins.SetActive(true);
 
-        // Después del retraso, ejecuta tu código
-        vfxCoins.SetActive(false);
-        material[1].shader = originalShader;
+        updateStateShaders(goldShader);
+
+        //salida
+        // Espera 5 segundos
+        StartCoroutine(StartWaitForSeconds(1, () => {
+            // Después del retraso, ejecuta tu código
+            vfxCoins.SetActive(false);
+
+            updateStateShaders(goldShader);
+            restoreStateShaders();
+        }));
         
+        
+    }
+   
+    IEnumerator StartWaitForSeconds(int secons, Action callback)
+    {
+        yield return new WaitForSeconds(secons);
+        callback.Invoke();
     }
 
     bool jumpPlayer() {
