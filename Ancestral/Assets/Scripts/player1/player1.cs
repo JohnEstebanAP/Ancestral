@@ -70,7 +70,6 @@ public class Player1 : MonoBehaviour
         OnMovePlayer(joystickMove);
         Gravity();
 
-        //RippleCamera.transform.position = transform.position + Vector3.up * 10;
         if (ripple != null) {
             if (isGrounded()) ripple.transform.position = transform.position + transform.forward;
             else ripple.transform.position = transform.position;
@@ -280,7 +279,7 @@ public class Player1 : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
         }
 
-        controller.Move(velocity * _moveSpeed * Time.deltaTime);
+        controller.Move(velocity * moveSpeed * Time.deltaTime);
     }
 
     public bool isGrounded()
