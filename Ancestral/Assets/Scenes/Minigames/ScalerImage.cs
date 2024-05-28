@@ -39,8 +39,8 @@ public class ScalerImage : MonoBehaviour
 
             if (anchoPantalla > alturaPantalla)
             {
-                anchoSprite = anchoSprite + spriteRenderer.sprite.bounds.size.x;
-                altoSprite = altoSprite + spriteRenderer.sprite.bounds.size.y;
+                anchoSprite = anchoSprite * 2f; //+ (spriteRenderer.sprite.bounds.size.x * 2) ;
+                altoSprite = altoSprite * 4f;//+ (spriteRenderer.sprite.bounds.size.y * 2);
             }
 
             Vector2 nuevoTamano = new Vector2(anchoSprite, altoSprite);

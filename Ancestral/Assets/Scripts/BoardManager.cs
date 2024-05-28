@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +25,15 @@ public class BoardManager : MonoBehaviour
 
     public const int MinCandiesToMatch = 2;
 
-    // Start is called before the first frame update
+    private float anchoBoardManager = 0;
+    private SpriteRenderer spriteRenderer;
+
+    private float padding = 1f;
+
+    public SpriteRenderer backgound;
+
+    public TextMeshProUGUI tMproScore;
+    public TextMeshProUGUI tMproMoves;
     void Start()
     {
         if (sharedInstance == null)
@@ -40,30 +48,83 @@ public class BoardManager : MonoBehaviour
 
     private void Update()
     {
-        Resolution resolucionActual = Screen.currentResolution;
-      
-        if (resolucionActual.height != alturaPantalla)
-        {
-            alturaPantalla = resolucionActual.height;
-            anchoPantalla = resolucionActual.width;
+        float canvasWidth = Screen.width;
+        float canvasHeight = Screen.height;
 
+        if (canvasHeight != alturaPantalla)
+        {          
+            alturaPantalla = canvasHeight;
+            anchoPantalla = canvasWidth;
+                        
             clearData();
 
             if (anchoPantalla > alturaPantalla)
             {
+                tMproScore.fontSize = 40;
+                tMproMoves.fontSize = 40;
                 xSize = 12;
                 ySize = 7;
-            
             }
             else {
+                tMproScore.fontSize = 80;
+                tMproMoves.fontSize = 80;
                 xSize = 7;
-                ySize = 9;
+                ySize = 9;            
             }
-       
+    
+            // Muestra los resultados en la consola
+                       
+            Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size * padding;
 
-            Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size * 1.5f;
-            CreateInitialBoard(margin);            
+            float anchoBoarmanager = getSizeBoard(currentCandy, margin[0]);
+
+            if (anchoBoarmanager > anchoPantalla)
+            {
+                for (int x = 0; x < xSize; x++)
+                {
+                    for (int y = 0; y < ySize; y++)
+                    {
+                        padding = 1;
+                        gameObject.transform.position = new Vector3(-2.9f, -8, 10);
+                        margin = currentCandy.GetComponent<BoxCollider2D>().size * padding;
+                    }
+                }
+            }
+            else {
+                if ((anchoBoarmanager + 400) < anchoPantalla)
+                {
+                    gameObject.transform.position = new Vector3(-11.1f, -8.5f, 10);
+                }
+                else {
+                    gameObject.transform.position = new Vector3(-2.9f, -8.5f, 10);
+                }
+            }
+            
+
+            CreateInitialBoard(margin);
         }
+    }
+
+
+    private float getSizeBoard(GameObject currentCandy,float padding) {
+        spriteRenderer = currentCandy.GetComponent<SpriteRenderer>();
+        Vector3 spriteSize = spriteRenderer.sprite.bounds.size;
+        float pixelsPerUnit = spriteRenderer.sprite.pixelsPerUnit;
+
+        float spriteWidthInPixels = spriteSize.x * backgound.sprite.pixelsPerUnit;
+        float spriteHeightInPixels = spriteSize.y * backgound.sprite.pixelsPerUnit;
+
+        anchoBoardManager = spriteWidthInPixels * xSize  * padding;
+
+        print("backgoun pixeles" + backgound.sprite.pixelsPerUnit * backgound.sprite.bounds.size.x);
+        
+        print("pixelsPerUnit" + pixelsPerUnit);
+        print("spriteSize.x " + spriteSize.x);
+        print("spriteWidthInPixels.x " + spriteWidthInPixels);
+        print("ancho boar: " + anchoBoardManager);
+        print("ancho pantalla: " + anchoPantalla);
+
+        return anchoBoardManager;
     }
 
     private void clearData()
@@ -81,6 +142,7 @@ public class BoardManager : MonoBehaviour
 
     private void CreateInitialBoard(Vector2 margin)
     {
+
         candies = new GameObject[xSize, ySize];
 
         float startX = this.transform.position.x;
@@ -99,10 +161,12 @@ public class BoardManager : MonoBehaviour
                     currentCandy.transform.rotation
                     );
 
+                newCandy.transform.localScale = new Vector3(1f, 1f, 1f);
+
                 newCandy.name = string.Format("Candy[{0}][{1}]", x, y);
 
                 //asignamos un id de la imagen de uno de todos los caramelos
-                //tambien se verifica que el caramelo elegino no se repita con uno de sus vecinos
+                //tambien se verifica que el caramelo elegido no se repita con uno de sus vecinos
                 do
                 {
                     idx = Random.Range(0, prefabs.Count);
@@ -124,6 +188,40 @@ public class BoardManager : MonoBehaviour
             }
         }
 
+
+        if (anchoBoardManager > anchoPantalla)
+        {
+            print("ingreso al condicional 1");
+            for (int x = 0; x < xSize; x++)
+            {
+                for (int y = 0; y < ySize; y++)
+                {                    
+                    candies[x, y].transform.localScale = new Vector3(1f, 1f, 1f);
+                    candies[x, y].transform.position = calculateNewPosicionCandy(startX, startY, margin, x, y);
+                }
+            }        
+        }
+        else {
+            if ((anchoBoardManager + 400) < anchoPantalla) {
+
+                padding = 2;
+
+                Vector2 newMargin = currentCandy.GetComponent<BoxCollider2D>().size * padding;
+
+                print("ingreso al condicional 2");
+                for (int x = 0; x < xSize; x++)
+                {
+                    for (int y = 0; y < ySize; y++)
+                    {
+                        candies[x, y].transform.localScale = new Vector3(2f, 2f, 2f);
+                        candies[x, y].transform.position = calculateNewPosicionCandy(startX, startY, newMargin, x, y);
+                    }
+                }
+            }            
+        }
+        print("**************************");
+        getSizeBoard(candies[0, 0], margin[0]);
+        print("**************************");
     }
 
     
