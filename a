@@ -1,0 +1,245 @@
+[33mcommit 8862b2c5d83baa517308e08fc0d9bf19a5a999d7[m[33m ([m[1;36mHEAD -> [m[1;32mfeacture[m[33m)[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 27 09:22:07 2024 -0500
+
+    delete lightingData
+
+[33mcommit c7375426fac7e6a5acd0c84ffa3d6446b0fbe7f7[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 27 09:16:07 2024 -0500
+
+    update cave
+
+[33mcommit 1ec6c86b2e1c37ce95820bfa8d7cb6cc2209a34a[m[33m ([m[1;31morigin/feacture[m[33m)[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 26 20:59:56 2024 -0500
+
+    Complete Dialogue System
+
+[33mcommit bd3d9fc2ff942be3f2011eb3f59ddac0f2c32c92[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 26 17:15:36 2024 -0500
+
+    implemen dialogue system part 1
+
+[33mcommit c4be541be92192ca35aa1aefdf825728e9530175[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 26 15:17:16 2024 -0500
+
+    stable project
+
+[33mcommit e7813438d14e412beb50d183237fb4d2973ce65b[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 26 10:59:56 2024 -0500
+
+    move controller player 1 complete
+
+[33mcommit 42e40628c91d89aa793b3ec75a887274a9f7f530[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 26 05:11:04 2024 -0500
+
+    update project
+
+[33mcommit f67784bc44b11ef3e721605257f023531850dbe9[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Thu May 23 00:31:29 2024 -0500
+
+    update
+
+[33mcommit 538fd91c4a3670d9d6564fd33347868e09b49c2b[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Wed May 22 21:37:00 2024 -0500
+
+    update player 1 part 1
+
+[33mcommit a5aefa84437ed2269e8732530d0e4aa86f81f267[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Wed May 22 06:03:29 2024 -0500
+
+    solution bug animation in strawberry
+
+[33mcommit 0da6b0671a9e28abe00cb12ca2ca4237ac3fc709[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 13 20:57:46 2024 -0500
+
+    update
+
+[33mcommit cdb2de133f76a4d83b09e41afa860747fc4e324c[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 13 17:29:47 2024 -0500
+
+    add horse part 6
+
+[33mcommit 3df817cc0aba5ec08625c368080f9124811a4117[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 13 16:28:14 2024 -0500
+
+    complete horse part 5
+
+[33mcommit 5c04e2f60050d95948fdfaf10a02c7127e6e9236[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 12 23:08:17 2024 -0500
+
+    add string or rope in unity for the horse
+
+[33mcommit 475ac26886850f6e1b124f8a1aaaf879d4fd4aec[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sat May 11 15:20:40 2024 -0500
+
+    add bar life basic
+
+[33mcommit 942fe84cd7aafb7571169b7939060b768e543939[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 6 18:24:12 2024 -0500
+
+    game part 1 complete
+
+[33mcommit 72f2881f91afbc45d89c899d4cac68b742745656[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 6 17:13:58 2024 -0500
+
+    complete attack criminal
+
+[33mcommit 3b6e92de5a455e348b029001f1cc43813297ed3b[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 6 16:25:38 2024 -0500
+
+    update play 1
+
+[33mcommit 08fb41e13dc735cdcd5386dd376cb8ef65f9a7ec[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon May 6 14:44:18 2024 -0500
+
+    completion part 3 criminal
+
+[33mcommit 15e84065d3e49e917958065e4afa34a8aeeeae1b[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 5 13:39:40 2024 -0500
+
+    creation criminal part 2
+
+[33mcommit 28280467bc64b4c433dbe949f70a86a5590340d0[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun May 5 04:30:33 2024 -0500
+
+    add particles in criminal
+
+[33mcommit e10248b317bae7189dd8e00087661249509cf040[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sat May 4 19:53:44 2024 -0500
+
+    add sytem particles in player 1
+
+[33mcommit 3eb839ade7572d8d21e7792362b35ffa4cd22563[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sat May 4 10:18:34 2024 -0500
+
+    add animation in Straberry
+
+[33mcommit 100e50c9a15f38358633c5491fd060cf990e5426[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Wed May 1 14:54:17 2024 -0500
+
+    add import models
+
+[33mcommit 7eec7a6431274a2afc2720e0dde39e355c5148b5[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 28 15:57:03 2024 -0500
+
+    adda animation par1 in trail
+
+[33mcommit 47d6af676f9866aeabbb517a858207615fa76813[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 28 13:36:22 2024 -0500
+
+    add trail in cave
+
+[33mcommit 665ac575de3d28fc8ca22b4167c90e96090c88b7[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 21 12:56:27 2024 -0500
+
+    update cave add lake
+
+[33mcommit c739a178304cf577df2991d5f6fbd0d572d3a7b2[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sat Apr 20 18:36:12 2024 -0500
+
+    update scene 1 add colliders transparents
+
+[33mcommit d7ba916149b6be389c3661dec622f4233f4ed508[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 14 14:30:59 2024 -0500
+
+    add collider part 2
+
+[33mcommit 474ceba32081fcbee0627b7b40e628842b681d3c[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 14 14:12:32 2024 -0500
+
+    add colliders
+
+[33mcommit f787e92cc4284610dc787279748146f3f3ade6e8[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 14 13:01:16 2024 -0500
+
+    Update scene1.unity
+
+[33mcommit 7483c82c797180f421305aab79fe7f161f8ea40d[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 14 12:50:36 2024 -0500
+
+    update french
+
+[33mcommit 59ed0a3fa35be0f60c4b5957e02d2b8d817a4cc2[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sun Apr 14 11:36:17 2024 -0500
+
+    update esene
+
+[33mcommit a44e85639b0386f38bcbed112762c798e3f4e7b0[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon Apr 8 21:45:12 2024 -0500
+
+    update
+
+[33mcommit b5569948e6eca7ba909773854738c3ec6e60e046[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon Apr 8 20:55:51 2024 -0500
+
+    update map luz
+
+[33mcommit 88359f1f0dc6a2ddcfd152c6eb358712a1ecb705[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon Apr 8 19:58:10 2024 -0500
+
+    Update Scene-cave.unity
+
+[33mcommit 05ca1fab26fac56fe9cd918fc5c2c10d6610dd7c[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon Apr 8 19:30:51 2024 -0500
+
+    Update Scene-cave.unity
+
+[33mcommit e5e41aa727c601c79faeb42b898181640be30533[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Mon Apr 8 19:22:28 2024 -0500
+
+    update luz
+
+[33mcommit bbf00c84bf87921fc333b5a201281f5608ddc8f1[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Sat Apr 6 12:33:24 2024 -0500
+
+    add WaterFall
+
+[33mcommit 08853a8414ee00dc470df9c50692336b3e1e3205[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Thu Apr 4 07:33:01 2024 -0500
+
+    .
+
+[33mcommit cca6eb9f83304205b39d194d0cc8c0d3756351bf[m
+Author: John Esteban Alvarez Piedrahita <j.alvarez2744@pascualbravo.edu.co>
+Date:   Thu Apr 4 07:32:45 2024 -0500
+
+    create profile ultraLowQ

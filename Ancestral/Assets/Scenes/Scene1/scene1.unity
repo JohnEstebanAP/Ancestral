@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4395907, g: 0.44238147, b: 0.48606858, a: 1}
+  m_IndirectSpecularColor: {r: 0.43977112, g: 0.44255808, b: 0.48622346, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26207,7 +26207,7 @@ GameObject:
   - component: {fileID: 802416833}
   - component: {fileID: 802416834}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NextGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57124,7 +57124,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.27e-43, y: -2.622482e+29, z: 5.27e-43, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 3e-45, z: 1.4316e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

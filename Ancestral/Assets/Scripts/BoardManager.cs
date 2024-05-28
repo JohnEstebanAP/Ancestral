@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class BoardManager : MonoBehaviour
 
     public List<Sprite> prefabs = new List<Sprite>();
     public GameObject currentCandy;
-    public int xSize, ySize;
+
+    int xSize = 7;
+    int ySize = 9;
+    private float alturaPantalla = 0;
+    private float anchoPantalla = 0;
 
     private GameObject[,] candies;
 
@@ -23,7 +28,6 @@ public class BoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         if (sharedInstance == null)
         {
             sharedInstance = this;
@@ -32,12 +36,48 @@ public class BoardManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-        Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size* 1.2f;
-        CreateInitialBoard(margin);
     }
 
+    private void Update()
+    {
+        Resolution resolucionActual = Screen.currentResolution;
+      
+        if (resolucionActual.height != alturaPantalla)
+        {
+            alturaPantalla = resolucionActual.height;
+            anchoPantalla = resolucionActual.width;
+
+            clearData();
+
+            if (anchoPantalla > alturaPantalla)
+            {
+                xSize = 12;
+                ySize = 7;
+            
+            }
+            else {
+                xSize = 7;
+                ySize = 9;
+            }
+       
+
+            Vector2 margin = currentCandy.GetComponent<BoxCollider2D>().size * 1.5f;
+            CreateInitialBoard(margin);            
+        }
+    }
+
+    private void clearData()
+    {
+        if(candies != null && candies.Length != 0){
+            for (int x = 0; x < xSize; x++)
+            {
+                for (int y = 0; y < ySize; y++)
+                {
+                    Destroy(candies[x, y]);
+                }
+            }
+        }        
+    }
 
     private void CreateInitialBoard(Vector2 margin)
     {
@@ -86,6 +126,7 @@ public class BoardManager : MonoBehaviour
 
     }
 
+    
     private Vector3 calculateNewPosicionCandy(float startX, float startY, Vector2 margin, int x, int y)
     {
 
@@ -93,7 +134,7 @@ public class BoardManager : MonoBehaviour
 
         return posicion;
     }
-
+    
     
     public IEnumerator FindNullCandies()
     {
@@ -143,16 +184,27 @@ public class BoardManager : MonoBehaviour
             GUIManager.sharedInstance.Score += 10;
 
             yield return new WaitForSeconds(shiftDelay);
-            for (int j = 0; j < renderes.Count - 1; j++)
-            {
-                renderes[j].sprite = renderes[j + 1].sprite;
-                renderes[j + 1].sprite = GetNewCandy(x, ySize - 1);
+
+            if (renderes.Count == 1) {
+                for (int j = 0; j < renderes.Count; j++)
+                {                   
+                    renderes[j].sprite = GetNewCandy(x, ySize - 1);
+                }
             }
+            else{
+                for (int j = 0; j < renderes.Count - 1; j++)
+                {
+                    renderes[j].sprite = renderes[j + 1].sprite;
+                    renderes[j + 1].sprite = GetNewCandy(x, ySize - 1);
+                }
+            }
+            
         }
 
         isShifting = false;
     }
-
+    
+    
     private Sprite GetNewCandy(int x, int y)
     {
         List<Sprite> possibleCandies = new List<Sprite>();
