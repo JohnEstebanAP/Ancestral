@@ -13,7 +13,7 @@ public class GUIManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     private int moveCounter;
     private int score;
-    private float timer = 5;
+    private float timer = 120;
 
     public int Score
     {
@@ -100,7 +100,7 @@ public class GUIManager : MonoBehaviour
         }
         
         if (timer <= 0 && score >= 1200) {
-           // SceneManager.LoadScene("GameOver");   
+           SceneManager.LoadScene("premio");   
         }
         
     }

@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 1b43213981c74944283b4528cd5b7ce4
+    guid: b5b9bd46db826f947a7d37228f84a962
   - enabled: 1
     path: Assets/Scenes/Scene1/scene1.unity
     guid: a31b3a1c6bd74d0408f6e09511970410
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Over/GameOver.unity
     guid: de3cfb6aef6e4bf4da5486a938398232
+  - enabled: 1
+    path: Assets/Scenes/premio.unity
+    guid: d2590c2cbccaa254082605951a09821f
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: ac2e74e489546d64288c4de8529a9add, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 4687a96946a6d5248a0c4363c728f126, type: 2}
