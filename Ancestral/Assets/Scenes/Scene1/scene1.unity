@@ -40721,7 +40721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 159892090}
-  textSpeed: 0.1
+  textSpeed: 0.01
 --- !u!1 &1229646728
 GameObject:
   m_ObjectHideFlags: 0

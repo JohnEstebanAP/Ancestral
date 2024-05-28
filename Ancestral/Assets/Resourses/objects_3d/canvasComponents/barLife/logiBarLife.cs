@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class logiBarLife : MonoBehaviour
@@ -19,8 +20,9 @@ public class logiBarLife : MonoBehaviour
     void Update()
     {
            ResetLife();
-        if (lifeNow <= 0) { 
-            gameObject.SetActive(false);
+        if (lifeNow <= 0) {
+            //gameObject.SetActive(false);
+            SceneManager.LoadScene("GameOver");           
         }
     }
 

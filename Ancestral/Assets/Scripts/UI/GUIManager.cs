@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour
@@ -9,8 +10,10 @@ public class GUIManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI movesText;
+    public TextMeshProUGUI timerText;
     private int moveCounter;
     private int score;
+    private float timer = 5;
 
     public int Score
     {
@@ -45,6 +48,21 @@ public class GUIManager : MonoBehaviour
         }
     }
 
+
+    public float Timer
+    {
+        get
+        {
+            return timer;
+        }
+
+        set
+        {
+            timer = value;                               
+            
+        }
+    }
+
     //hacemos que nustra clase GUIMAnager tenga un patron singleton
     public static GUIManager sharedInstance;
 
@@ -72,6 +90,18 @@ public class GUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        timerText.text= "Tiempo:"+ timer.ToString("f0");
+        print("score"+ score);
+        if (timer <= 0 && score < 1200)
+        {
+            print("fin del juego");
+            SceneManager.LoadScene("GameOver");
+        }
+        
+        if (timer <= 0 && score >= 1200) {
+           // SceneManager.LoadScene("GameOver");   
+        }
         
     }
 

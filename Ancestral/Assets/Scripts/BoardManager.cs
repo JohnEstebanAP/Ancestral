@@ -33,7 +33,8 @@ public class BoardManager : MonoBehaviour
     public SpriteRenderer backgound;
 
     public TextMeshProUGUI tMproScore;
-    public TextMeshProUGUI tMproMoves;
+    public TextMeshProUGUI tMproMoves; 
+    public TextMeshProUGUI tMproTimer;
     void Start()
     {
         if (sharedInstance == null)
@@ -60,14 +61,16 @@ public class BoardManager : MonoBehaviour
 
             if (anchoPantalla > alturaPantalla)
             {
-                tMproScore.fontSize = 40;
-                tMproMoves.fontSize = 40;
+                tMproScore.fontSize = 30;
+                tMproMoves.fontSize = 30;
+                tMproTimer.fontSize = 40;
                 xSize = 12;
                 ySize = 7;
             }
             else {
                 tMproScore.fontSize = 80;
                 tMproMoves.fontSize = 80;
+                tMproTimer.fontSize = 80;
                 xSize = 7;
                 ySize = 9;            
             }
@@ -85,7 +88,7 @@ public class BoardManager : MonoBehaviour
                     for (int y = 0; y < ySize; y++)
                     {
                         padding = 1;
-                        gameObject.transform.position = new Vector3(-2.9f, -8, 10);
+                        gameObject.transform.position = new Vector3(-2.9f, -7, 10);
                         margin = currentCandy.GetComponent<BoxCollider2D>().size * padding;
                     }
                 }
