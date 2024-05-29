@@ -42,6 +42,7 @@ public class Player1 : MonoBehaviour
 
     public float damage = 2.0f;
 
+    public AudioSource audioJump;
 
     //variables para la animacion
     public Animator animator;
@@ -86,6 +87,7 @@ public class Player1 : MonoBehaviour
 
         if (jumpPlayer())
         {
+            audioJump.Play();
             controllerAnimator(vertical, horizontal, false,true);
             return;
         }

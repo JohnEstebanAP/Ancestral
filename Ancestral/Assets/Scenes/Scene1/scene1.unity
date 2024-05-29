@@ -8141,6 +8141,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1522942682}
     - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+      propertyPath: audioJump
+      value: 
+      objectReference: {fileID: 1236461128}
+    - target: {fileID: 8827990501803526935, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
       propertyPath: moveSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -41088,6 +41092,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21a364ddeffc797439f2a5721660b0e6, type: 3}
+--- !u!82 &1236461128 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8343132303713784550, guid: 7ca6c3772e7f2b548a26d63cf1cc6c83, type: 3}
+  m_PrefabInstance: {fileID: 212806192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1237213612
 PrefabInstance:
   m_ObjectHideFlags: 0
