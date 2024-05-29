@@ -9,7 +9,7 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     private List<string> linesIntro = new List<string>();
     private List<string> linesHistoriMadremonte1 = new List<string>();
-
+    public List<AudioSource> listAudios = new List<AudioSource>();
     private List<List<string>> capitulo = new List<List<string>>();
     List<string> capituloSelecte;
     
@@ -65,12 +65,16 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue() { 
         index = 0;
+
+
         StartCoroutine(WriteLine());
 
     }
 
     IEnumerator WriteLine()
     {
+
+        listAudios[index].Play();
         print("Index:"+ index);
         foreach (var letter in capituloSelecte[index].ToCharArray()) {
             dialogueText.text += letter;
