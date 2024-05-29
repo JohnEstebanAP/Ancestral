@@ -8,7 +8,13 @@ public class DialogueController : MonoBehaviour
 
     public TextMeshProUGUI dialogueText;
     private List<string> linesIntro = new List<string>();
+    private List<string> linesHistoriMadremonte1 = new List<string>();
+
+    private List<List<string>> capitulo = new List<List<string>>();
+    List<string> capituloSelecte;
+    
     public float textSpeed = 0.1f;
+    public int indexCapitulo = 0;
     int index;
 
     // Start is called before the first frame update
@@ -21,6 +27,16 @@ public class DialogueController : MonoBehaviour
         linesIntro.Add("Estoy muy emocionada, he traído muchos regalos para mi familia, incluyendo ropa y objetos que encontré durante mis investigaciones.");
         linesIntro.Add("El camino a casa es una trocha, una carretera sin pavimentar con barro y rocas. Pero si sigo derecho, según el mapa, llegaré a mi hogar. ¡Acompáñame en esta aventura!");
 
+
+        linesHistoriMadremonte1.Add("Te estaba esperando, chiquilla. Estoy muy enojada contigo y con tu especie porque han invadido, destruido el bosque y la naturaleza. Sin embargo, he visto en el interior de tu corazón que hay bondad. Por eso, te perdonaré y te propondré un trato. ");
+        linesHistoriMadremonte1.Add("Te ayudaré a recuperar tus artefactos perdidos y a regresar a casa, pero antes, deberás ayudarme a vencer a la bruja de las banderas negras. Ella ha hechizado a los criminales de la región y está destruyendo mi preciado bosque.");
+        linesHistoriMadremonte1.Add("Para empezar, te regalaré un sombrero aguadeño para tu colección de artefactos vestimentarios. Ahora, regresa y entra en el lago dentro de la cueva. Allí encontrarás un portal mágico escondido que te llevará fuera de esta cueva, pero para poder activarlo deberás superar un reto. Te deseo suerte, pequeña Esmeralda.");        
+
+        capitulo.Add(linesIntro);
+        capitulo.Add(linesHistoriMadremonte1);
+
+        capituloSelecte = capitulo[indexCapitulo];
+
         StartDialogue();
  }
 
@@ -32,8 +48,10 @@ public class DialogueController : MonoBehaviour
     }
 
     public void OnClick()
-    {       
-            if (dialogueText.text == linesIntro[index])
+    {   
+ 
+
+            if (dialogueText.text ==  capituloSelecte[index])
             {
                 NextLine();
             }
@@ -54,7 +72,7 @@ public class DialogueController : MonoBehaviour
     IEnumerator WriteLine()
     {
         print("Index:"+ index);
-        foreach (var letter in linesIntro[index].ToCharArray()) {
+        foreach (var letter in capituloSelecte[index].ToCharArray()) {
             dialogueText.text += letter;
 
             yield return new WaitForSeconds(textSpeed);
@@ -62,7 +80,7 @@ public class DialogueController : MonoBehaviour
     }
 
     public void NextLine() {
-        if (index < linesIntro.Count -1)
+        if (index < capituloSelecte.Count -1)
         {
             index++;
             dialogueText.text = string.Empty;
