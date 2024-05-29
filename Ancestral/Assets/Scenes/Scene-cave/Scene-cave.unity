@@ -8120,8 +8120,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.28502133, g: 0.35673153, b: 0.990566, a: 1}
-  m_Intensity: 20
-  m_Range: 70
+  m_Intensity: 100
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8162,7 +8162,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 20
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -24473,7 +24473,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b2fcc6f85d780a49a9ceb8d222701e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1525701861}
   m_SourcePrefab: {fileID: 100100000, guid: 0b2fcc6f85d780a49a9ceb8d222701e2, type: 3}
 --- !u!4 &1512925105 stripped
 Transform:
@@ -29310,6 +29313,34 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1525701859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b2fcc6f85d780a49a9ceb8d222701e2, type: 3}
+  m_PrefabInstance: {fileID: 1512925104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1525701861
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525701859}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.5722005
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.78609985, z: 0}
 --- !u!1001 &1608341482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35366,8 +35397,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.02520132, g: 1, b: 0, a: 1}
-  m_Intensity: 20
-  m_Range: 70
+  m_Intensity: 50
+  m_Range: 200
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -35408,7 +35439,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 20
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

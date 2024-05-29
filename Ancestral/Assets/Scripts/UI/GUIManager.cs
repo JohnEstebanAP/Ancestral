@@ -80,7 +80,7 @@ public class GUIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        moveCounter = 30;
+        moveCounter = 32;
         movesText.text = "Movimientos: " + moveCounter;
 
         score = 0;
@@ -93,13 +93,13 @@ public class GUIManager : MonoBehaviour
         timer -= Time.deltaTime;
         timerText.text= "Tiempo:"+ timer.ToString("f0");
         print("score"+ score);
-        if (timer <= 0 && score < 1200)
+        if (timer <= 0 && score < 1000)
         {
             print("fin del juego");
             SceneManager.LoadScene("GameOver");
         }
         
-        if (timer <= 0 && score >= 1200) {
+        if (timer <= 0 && score >= 1000) {
            SceneManager.LoadScene("premio");   
         }
         
