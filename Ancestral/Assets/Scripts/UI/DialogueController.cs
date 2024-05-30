@@ -35,47 +35,49 @@ public class DialogueController : MonoBehaviour
         capitulo.Add(linesIntro);
         capitulo.Add(linesHistoriMadremonte1);
 
+        print("////////////// capitulo selecionado: " + indexCapitulo);
         capituloSelecte = capitulo[indexCapitulo];
 
         StartDialogue();
- }
+        print("print indext: " + index + "\n" + capituloSelecte[index]);
+    }
 
     // Update is called once per frame
     void Update()
     {
         
-        
+    
     }
 
     public void OnClick()
-    {   
- 
+    {      
+        print("******************************* \n Ingreso en OnClick() \n*******************************");
+       
 
-            if (dialogueText.text ==  capituloSelecte[index])
+        if (dialogueText.text ==  capituloSelecte[index])
             {
                 NextLine();
             }
-            else
+        else
             {
                StopAllCoroutines();      
-               dialogueText.text = linesIntro[index];                
+               dialogueText.text = capituloSelecte[index];                
             }        
     }
 
 
     public void StartDialogue() { 
         index = 0;
-
-
+       
+        print("******************************* \n Ingreso en StartDialogue() \n*******************************");
         StartCoroutine(WriteLine());
 
     }
 
     IEnumerator WriteLine()
     {
-
-        listAudios[index].Play();
-        print("Index:"+ index);
+        print("******************************* \n Ingreso en WriteLine() \n*******************************");
+        listAudios[index].Play();        
         foreach (var letter in capituloSelecte[index].ToCharArray()) {
             dialogueText.text += letter;
 
@@ -84,8 +86,10 @@ public class DialogueController : MonoBehaviour
     }
 
     public void NextLine() {
+        print("******************************* \n Ingreso en NextLine() \n*******************************");
         if (index < capituloSelecte.Count -1)
-        {
+        {            
+            listAudios[index].Pause();
             index++;
             dialogueText.text = string.Empty;
             StartCoroutine(WriteLine());
